@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { func, string } from 'prop-types';
+import { decode } from 'he';
 import Header from '../../components/Header';
 import fetchApi from '../../services/api';
 import { saveNewQuestionScore, updateCorrectAnswers } from '../../redux/Actions';
@@ -45,6 +46,7 @@ class Game extends Component {
     const { questions, actualQuestion, time } = this.state;
     const { correct_answer: correct, incorrect_answers: incorrect,
     } = questions[actualQuestion];
+    decode('&quot', '&#039');
     if (prevState.actualQuestion !== actualQuestion) {
       this.setState({ randomAnswers: this.auxRandomize(correct, incorrect) });
     }
@@ -149,23 +151,13 @@ class Game extends Component {
   timer = () => {
     const { time, intervalId } = this.state;
     const ONE_SECOND = 1000;
-    if (intervalId) {
-      this.setState({ time: 30, intervalId: '' });
-    }
-    if (time === 0) {
-      this.setState({ time: 30, intervalId: '' });
-    }
-
-    const timer = setInterval(
-      () => {
-        this.setState((prevState) => ({
-          ...prevState,
-          time: prevState.time - 1,
-          intervalId: timer,
-        }));
-      },
-      ONE_SECOND,
-    );
+    if (intervalId) { this.setState({ time: 30, intervalId: '' }); }
+    if (time === 0) { this.setState({ time: 30, intervalId: '' }); }
+    const timer = setInterval(() => {
+      this.setState((prevState) => ({ ...prevState,
+        time: prevState.time - 1,
+        intervalId: timer }));
+    }, ONE_SECOND);
   };
 
   timerValidator = () => {
@@ -201,9 +193,7 @@ class Game extends Component {
               <h2 data-testid="question-text">
                 {question}
               </h2>
-              <p>
-                {`Tempo: ${time}s`}
-              </p>
+              <p>{`Tempo: ${time}s`}</p>
             </div>
           </S.QuestionContainer>
           <S.QuestsContainer data-testid="answer-options">
