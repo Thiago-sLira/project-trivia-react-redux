@@ -14,7 +14,6 @@ const INDEX = { count: -1 };
 const TIME_LIMIT = 0;
 const TEN = 10;
 const THREE = 3;
-
 class Game extends Component {
   state = {
     redirectToFeedback: false,
@@ -54,6 +53,12 @@ class Game extends Component {
       this.verifyTimerInZero();
     }
   }
+
+  decodeHtml = (html) => {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return txt.value;
+  };
 
   fetchQuestions = async () => {
     const actualToken = localStorage.getItem('token');
@@ -121,8 +126,7 @@ class Game extends Component {
       const { correct_answer: correctAnswer, difficulty } = questions[actualQuestion];
       if (!revealQuests && value === correctAnswer) {
         const scoreActualQuestion = TEN + (time * this.handleDifficultyScore(difficulty));
-        this.setState((prevState) => ({
-          points: prevState.points + scoreActualQuestion }));
+        this.setState((prevStat) => ({ points: prevStat.points + scoreActualQuestion }));
       }
     });
   };
@@ -185,14 +189,10 @@ class Game extends Component {
           <S.QuestionContainer>
             <img src={ triviaLogo } alt="logo-trivia" />
             <div className="category">
-              <p data-testid="question-category">
-                {category}
-              </p>
+              <p data-testid="question-category">{category}</p>
             </div>
             <div className="question">
-              <h2 data-testid="question-text">
-                {question}
-              </h2>
+              <h2 data-testid="question-text">{this.decodeHtml(question)}</h2>
               <p>{`Tempo: ${time}s`}</p>
             </div>
           </S.QuestionContainer>
