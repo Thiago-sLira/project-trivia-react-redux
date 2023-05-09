@@ -1,13 +1,23 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h1>Trivia</h1>
+<p>A quiz game with challenges that will make your nights with friends more fun.</p>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+<h2>🚀 Objective</h2>
+<p>Develop a trivia game based on the Trivia game, using React and Redux. As a group project, develop the functionalities according to pre-defined demands on a Kanban board. It was essential for the group to be organized using the board for greater efficiency and minimizing code conflicts.</p><br>
+<p>Working in a group is not an easy task, as the same problem can be solved in several ways. I was able to learn how to develop an application with different people from whom I learned a lot. It was also very challenging to work with the questions and answers received, indicating which ones are correct and which are the wrong alternatives. Setting a time limit for each question and calculating the score based on response time was one of the best projects I have ever worked on.</p>
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+
+<h2>🛠️ Built With</h2>
+
+<span><strong><em>JavaScript</em></strong></span><br>
+<span><strong><em>React</em></strong></span><br>
+<span><strong><em>React Testing Library</em></strong></span><br>
+<span><strong><em>Redux</em></strong></span><br>
+
+<h3>Project Look</h3>
+
+<img alt="image-readme" src="./github/Trivia-Main-Question.png" title="Trivia-Main-Question"/>
+
+<p>I am available for contact, suggestions, and feedback on the project.</p>
+
+<h2>🎁 Expressions of Gratitude</h2>
+<p>Tell others about this project. 📢</p>
